@@ -1,50 +1,46 @@
 import 'package:demo/pages/home.dart';
-import 'package:demo/utility/util.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class addExpenses extends StatefulWidget {
+class addIncome extends StatefulWidget {
   String userName;
-  addExpenses(this.userName);
+  addIncome(this.userName);
 
   @override
-  State<addExpenses> createState() => _addExpensesState(userName);
+  State<addIncome> createState() => _addIncomeState(userName);
 }
 
-class _addExpensesState extends State<addExpenses> {
+class _addIncomeState extends State<addIncome> {
   var userName;
-  _addExpensesState(this.userName);
+  _addIncomeState(this.userName);
   // ignore: empty_constructor_bodies
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: Scaffold(body: expensesContent(widget.userName)),
+      home: Scaffold(body: incomeContent(widget.userName)),
     );
   }
 }
 
-class expensesContent extends StatefulWidget {
+class incomeContent extends StatefulWidget {
   var userName;
-  expensesContent(this.userName);
+  incomeContent(this.userName);
 
   @override
-  State<expensesContent> createState() => _expensesContentState();
+  State<incomeContent> createState() => _incomeContentState();
 }
 
-class _expensesContentState extends State<expensesContent> {
+class _incomeContentState extends State<incomeContent> {
   @override
   Widget build(BuildContext context) {
     final amountController = TextEditingController();
-    final categoryController = TextEditingController();
     final noteController = TextEditingController();
     final dateController = TextEditingController();
     void onSubmit() async {
       final amount = amountController.text;
-      final category = categoryController.text;
       final note = noteController.text;
       final date = dateController.text;
       if (amount == '' || date == '') {
@@ -71,7 +67,7 @@ class _expensesContentState extends State<expensesContent> {
           "amount": amount,
           "massage": note,
           "date": date,
-          "type": "expenses"
+          "type": "income"
         };
 
         print("api calling...");
@@ -128,7 +124,7 @@ class _expensesContentState extends State<expensesContent> {
                 ],
               ),
               const Text(
-                "ADD EXPENSES",
+                "ADD INCOME",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               const SizedBox(
