@@ -39,6 +39,7 @@ class _incomeContentState extends State<incomeContent> {
     final amountController = TextEditingController();
     final noteController = TextEditingController();
     final dateController = TextEditingController();
+    // form handle
     void onSubmit() async {
       final amount = amountController.text;
       final note = noteController.text;

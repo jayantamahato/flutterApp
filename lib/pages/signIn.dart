@@ -126,8 +126,7 @@ class _signInContentState extends State<signInContent> {
     return Center(
       child: Container(
         decoration: const BoxDecoration(
-          // ignore: unnecessary_const
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             colors: [
               Color.fromARGB(255, 255, 145, 67),
               Color.fromARGB(192, 213, 63, 254),

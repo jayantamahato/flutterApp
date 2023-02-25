@@ -2,6 +2,7 @@ import 'package:demo/pages/home.dart';
 import 'package:demo/utility/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -38,10 +39,10 @@ class expensesContent extends StatefulWidget {
 class _expensesContentState extends State<expensesContent> {
   @override
   Widget build(BuildContext context) {
-    final amountController = TextEditingController();
-    final categoryController = TextEditingController();
-    final noteController = TextEditingController();
-    final dateController = TextEditingController();
+    TextEditingController amountController = new TextEditingController();
+    TextEditingController categoryController = new TextEditingController();
+    TextEditingController noteController = new TextEditingController();
+    TextEditingController dateController = new TextEditingController();
     void onSubmit() async {
       final amount = amountController.text;
       final category = categoryController.text;
