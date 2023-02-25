@@ -4,10 +4,6 @@ import 'package:demo/utility/util.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-void main() {
-  runApp(register());
-}
-
 class register extends StatefulWidget {
   @override
   State<register> createState() => _registerState();
@@ -19,7 +15,7 @@ class _registerState extends State<register> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: Scaffold(
+      home: const Scaffold(
         body: signUpContent(),
       ),
     );
@@ -27,6 +23,8 @@ class _registerState extends State<register> {
 }
 
 class signUpContent extends StatefulWidget {
+  const signUpContent({Key? key}) : super(key: key);
+
   @override
   State<signUpContent> createState() => _signUpContentState();
 }
@@ -37,15 +35,17 @@ class _signUpContentState extends State<signUpContent> {
     TextEditingController nameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController conPasswordController = TextEditingController();
+    //function for navigate to sign in
+
     void nextPage() {
-      Navigator.push(
-        context,
-        // ignore: unnecessary_new
-        new MaterialPageRoute(
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
           builder: (context) => signIn(),
         ),
       );
     }
+
+//form handle
 
     void handleSubmit() async {
       final name = nameController.text;
@@ -150,20 +150,20 @@ class _signUpContentState extends State<signUpContent> {
                         child: Column(
                           children: [
                             TextFormField(
-                              controller: nameController,
                               decoration:
                                   const InputDecoration(labelText: "Name"),
+                              controller: nameController,
                             ),
                             TextFormField(
-                              controller: passwordController,
                               decoration: const InputDecoration(
                                   labelText: "Set Password"),
+                              controller: passwordController,
                             ),
                             TextFormField(
-                              controller: conPasswordController,
+                              obscureText: true,
                               decoration: const InputDecoration(
                                   labelText: "Confirm Password"),
-                              obscureText: true,
+                              controller: conPasswordController,
                             )
                           ],
                         ),

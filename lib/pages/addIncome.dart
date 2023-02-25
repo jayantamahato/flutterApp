@@ -101,137 +101,134 @@ class _incomeContentState extends State<incomeContent> {
     }
 
     return Center(
-      child: Container(
-        color: const Color.fromARGB(255, 241, 241, 241),
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              //icon-container
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    child: const Icon(
-                      Icons.cancel_rounded,
-                      color: Colors.red,
-                      size: 30,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => homePage(widget.userName)));
-                    },
-                  ),
-                ],
-              ),
-              const Text(
-                "ADD INCOME",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 70),
-                child: Column(
+      child: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color.fromARGB(255, 241, 241, 241),
+          ),
+          width: 300,
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //icon-container
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    TextFormField(
-                      controller: amountController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: "Rs.",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 2, color: Colors.purple), //<-- SEE HERE
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
+                    InkWell(
+                      child: const Icon(
+                        Icons.cancel_rounded,
+                        color: Colors.red,
+                        size: 30,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 25,
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => homePage(widget.userName)));
+                      },
                     ),
                   ],
                 ),
-              ),
-              Container(
-                  padding: const EdgeInsets.all(20.0),
+                const Text(
+                  "ADD INCOME",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 10),
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 30,
-                      ),
                       TextFormField(
-                        controller: noteController,
+                        controller: amountController,
+                        textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          hintText: "Note",
+                          hintText: "Rs.",
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                width: 2, color: Colors.white), //<-- SEE HERE
-                            borderRadius: BorderRadius.circular(20.0),
+                                width: 2, color: Colors.purple), //<-- SEE HERE
+                            borderRadius: BorderRadius.circular(50.0),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintText: "Date",
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 2, color: Colors.white), //<-- SEE HERE
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                        controller: dateController,
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color.fromARGB(255, 255, 145, 67),
-                                Color.fromARGB(192, 213, 63, 254),
-                                Color.fromARGB(188, 53, 137, 234),
-                              ],
-                              begin: FractionalOffset.bottomRight,
-                              end: FractionalOffset.topLeft,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black54,
-                                offset: Offset(2.0, 5.0),
-                                blurRadius: 10.0,
-                                spreadRadius: 0.0,
-                              ),
-                            ]),
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 250,
-                        child: InkWell(
-                          child: const Text("Save"),
-                          onTap: () {
-                            onSubmit();
-                          },
-                        ),
-                      )
                     ],
-                  ))
-            ],
+                  ),
+                ),
+                Container(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          controller: noteController,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            hintText: "Note",
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 2, color: Colors.white), //<-- SEE HERE
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            hintText: "Date",
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 2, color: Colors.white), //<-- SEE HERE
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                          controller: dateController,
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color.fromARGB(255, 255, 145, 67),
+                                  Color.fromARGB(192, 213, 63, 254),
+                                  Color.fromARGB(188, 53, 137, 234),
+                                ],
+                                begin: FractionalOffset.bottomRight,
+                                end: FractionalOffset.topLeft,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black54,
+                                  offset: Offset(2.0, 5.0),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 0.0,
+                                ),
+                              ]),
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 250,
+                          child: InkWell(
+                            child: const Text("Save"),
+                            onTap: () {
+                              onSubmit();
+                            },
+                          ),
+                        )
+                      ],
+                    ))
+              ],
+            ),
           ),
         ),
       ),

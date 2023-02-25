@@ -4,14 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:demo/utility/util.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../main.dart';
-
-void main() {
-  runApp(signIn());
-}
 
 class signIn extends StatefulWidget {
   @override
@@ -26,7 +20,9 @@ class _signInState extends State<signIn> {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const Scaffold(body: signInContent()),
+      home: const Scaffold(
+        body: signInContent(),
+      ),
     );
   }
 }
@@ -43,25 +39,7 @@ class _signInContentState extends State<signInContent> {
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
     TextEditingController passController = TextEditingController();
-
-    // void navigatorFunction() async {
-    //   var sharedVal = await SharedPreferences.getInstance();
-    //   var isLogin = await sharedVal.getBool(MainPageState.key);
-    //   print("signinPage");
-    //   print(isLogin);
-    //   if (isLogin != null) {
-    //     if (isLogin) {
-    //       Navigator.pushReplacement(
-    //           context, MaterialPageRoute(builder: (context) => homePage()));
-    //     } else {
-    //       Navigator.pushReplacement(
-    //           context, MaterialPageRoute(builder: (context) => signIn()));
-    //     }
-    //   } else {
-    //     Navigator.pushReplacement(
-    //         context, MaterialPageRoute(builder: (context) => signIn()));
-    //   }
-    // }
+//handle submit
 
     void handleSubmit() async {
       final name = nameController.text;
@@ -118,6 +96,7 @@ class _signInContentState extends State<signInContent> {
       }
     }
 
+    //sign up navigation function
     void nextPage() {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => register()));
